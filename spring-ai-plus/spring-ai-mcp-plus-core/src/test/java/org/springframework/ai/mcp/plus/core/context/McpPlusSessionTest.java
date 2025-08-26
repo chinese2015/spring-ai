@@ -42,7 +42,7 @@ class McpPlusSessionTest {
         assertEquals(Duration.ofMinutes(30), session.getMaxInactiveInterval());
         assertFalse(session.isExpired());
         assertTrue(session.getAllData().isEmpty());
-        assertFalse(session.getUnderlyingMcpSession().isPresent());
+        assertFalse(session.getUnderlyingMcpServerSession().isPresent());
     }
     
     @Test

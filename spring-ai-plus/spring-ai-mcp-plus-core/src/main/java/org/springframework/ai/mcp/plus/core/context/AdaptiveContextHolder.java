@@ -185,3 +185,4 @@ public class AdaptiveContextHolder implements McpPlusContextHolder {
         // Clear reactive context if needed
     }
 }
+

@@ -174,4 +174,4 @@ Apache License 2.0
 
 ## 🚀 开始使用
 
-**[👉 5分钟快速入门](QUICK_START.md)** | **[📚 完整文档](USAGE_GUIDE.md)** | **[🔍 示例代码](examples/)** | **[🔌 MCP集成指南](MCP_SESSION_INTEGRATION.md)**
+**[👉 5分钟快速入门](QUICK_START.md)** | **[📚 完整文档](USAGE_GUIDE.md)** | **[🔍 示例代码](examples/)**

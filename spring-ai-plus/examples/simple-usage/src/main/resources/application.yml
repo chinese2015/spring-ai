@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: spring-ai-mcp-plus-example
+  
+  ai:
+    mcp:
+      plus:
+        enabled: true
+        context:
+          enabled: true
+          session:
+            max-inactive-interval: PT30M  # 30 minutes
+            auto-cleanup: true
+          thread-safety:
+            strategy: adaptive  # 自动检测环境并选择合适的策略
+            inheritable-thread-local: true
+
+server:
+  port: 8080
+
+logging:
+  level:
+    org.springframework.ai.mcp.plus: DEBUG
+    com.example: DEBUG

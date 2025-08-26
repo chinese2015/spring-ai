@@ -108,10 +108,11 @@ public interface McpPlusSession {
     void touch();
     
     /**
-     * Get the underlying MCP session if available.
-     * This provides access to the low-level MCP SDK session object.
+     * Get the underlying MCP server session if available.
+     * This provides access to the low-level MCP Java SDK McpServerSession object.
      * 
-     * @return the underlying MCP session if present
+     * @return the underlying MCP server session if present
      */
-    Optional<Object> getUnderlyingMcpSession();
+    Optional<Object> getUnderlyingMcpServerSession();
 }
+

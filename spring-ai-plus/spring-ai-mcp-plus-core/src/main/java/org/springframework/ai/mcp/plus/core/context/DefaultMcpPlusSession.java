@@ -62,16 +62,16 @@ public class DefaultMcpPlusSession implements McpPlusSession {
      * 
      * @param id the session ID
      * @param maxInactiveInterval maximum time a session can be inactive
-     * @param underlyingMcpSession the underlying MCP session object, if any
+     * @param underlyingMcpServerSession the underlying MCP server session object, if any
      */
-    public DefaultMcpPlusSession(String id, Duration maxInactiveInterval, Object underlyingMcpSession) {
+    public DefaultMcpPlusSession(String id, Duration maxInactiveInterval, Object underlyingMcpServerSession) {
         this.id = id;
         this.createdAt = Instant.now();
         this.lastAccessedAt = this.createdAt;
         this.maxInactiveInterval = maxInactiveInterval != null ? maxInactiveInterval : Duration.ofMinutes(30);
         this.invalidated = false;
         this.sessionData = new ConcurrentHashMap<>();
-        this.underlyingMcpSession = underlyingMcpSession;
+        this.underlyingMcpSession = underlyingMcpServerSession;
     }
     
     @Override
@@ -172,7 +172,7 @@ public class DefaultMcpPlusSession implements McpPlusSession {
     }
     
     @Override
-    public Optional<Object> getUnderlyingMcpSession() {
+    public Optional<Object> getUnderlyingMcpServerSession() {
         return Optional.ofNullable(underlyingMcpSession);
     }
     
@@ -194,3 +194,4 @@ public class DefaultMcpPlusSession implements McpPlusSession {
                '}';
     }
 }
+
