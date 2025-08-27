@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-package org.springframework.ai.mcp.plus.core.context;
+package org.springframework.ai.mcp.plus.core.session.enhanced;
+
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
+import org.springframework.ai.mcp.plus.core.session.impl.DefaultMcpPlusSession;
 
 import java.time.Duration;
 import java.util.Map;

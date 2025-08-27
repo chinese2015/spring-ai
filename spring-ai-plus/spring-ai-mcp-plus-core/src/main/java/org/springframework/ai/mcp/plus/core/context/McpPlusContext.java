@@ -17,6 +17,8 @@
 package org.springframework.ai.mcp.plus.core.context;
 
 // import org.springframework.ai.chat.model.ToolContext; // Commented out for standalone demo
+import org.springframework.ai.mcp.plus.core.metadata.RequestMetadata;
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
 import org.springframework.lang.Nullable;
 import java.util.Map;
 import java.util.Optional;
@@ -129,7 +131,7 @@ public interface McpPlusContext {
      * @return a new McpPlusContext wrapping the ToolContext
      */
     static McpPlusContext from(@Nullable ToolContext toolContext) {
-        return new DefaultMcpPlusContext(toolContext);
+        return new org.springframework.ai.mcp.plus.core.impl.DefaultMcpPlusContext(toolContext);
     }
     
     /**
@@ -138,6 +140,6 @@ public interface McpPlusContext {
      * @return a new empty McpPlusContext
      */
     static McpPlusContext empty() {
-        return new DefaultMcpPlusContext();
+        return new org.springframework.ai.mcp.plus.core.impl.DefaultMcpPlusContext();
     }
 }

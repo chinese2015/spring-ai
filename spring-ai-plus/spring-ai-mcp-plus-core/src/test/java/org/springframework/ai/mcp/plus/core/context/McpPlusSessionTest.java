@@ -16,6 +16,8 @@
 
 package org.springframework.ai.mcp.plus.core.context;
 
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
+import org.springframework.ai.mcp.plus.core.session.impl.DefaultMcpPlusSession;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;

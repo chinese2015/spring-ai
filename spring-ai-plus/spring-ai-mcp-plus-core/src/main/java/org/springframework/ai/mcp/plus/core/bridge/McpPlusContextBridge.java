@@ -14,8 +14,15 @@
  * limitations under the License.
  */
 
-package org.springframework.ai.mcp.plus.core.context;
+package org.springframework.ai.mcp.plus.core.bridge;
 
+import org.springframework.ai.mcp.plus.core.context.McpPlusContext;
+import org.springframework.ai.mcp.plus.core.context.ToolContext;
+import org.springframework.ai.mcp.plus.core.impl.DefaultMcpPlusContext;
+import org.springframework.ai.mcp.plus.core.metadata.impl.DefaultRequestMetadata;
+import org.springframework.ai.mcp.plus.core.session.enhanced.EnhancedMcpServerSession;
+import org.springframework.ai.mcp.plus.core.metadata.RequestMetadata;
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
 import org.springframework.lang.Nullable;
 
 import java.util.Map;

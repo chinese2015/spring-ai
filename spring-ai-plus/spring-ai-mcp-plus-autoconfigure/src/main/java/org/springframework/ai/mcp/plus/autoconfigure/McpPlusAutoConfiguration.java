@@ -16,7 +16,12 @@
 
 package org.springframework.ai.mcp.plus.autoconfigure;
 
-import org.springframework.ai.mcp.plus.core.context.*;
+import org.springframework.ai.mcp.plus.core.context.McpPlusContext;
+import org.springframework.ai.mcp.plus.core.environment.EnvironmentDetector;
+import org.springframework.ai.mcp.plus.core.holder.McpPlusContextHolder;
+import org.springframework.ai.mcp.plus.core.holder.impl.AdaptiveContextHolder;
+import org.springframework.ai.mcp.plus.core.session.McpPlusSessionManager;
+import org.springframework.ai.mcp.plus.core.session.impl.DefaultSessionManager;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

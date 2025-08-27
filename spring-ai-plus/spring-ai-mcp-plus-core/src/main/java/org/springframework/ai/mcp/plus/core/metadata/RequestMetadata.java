@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.springframework.ai.mcp.plus.core.context;
+package org.springframework.ai.mcp.plus.core.metadata;
 
 import java.time.Instant;
 import java.util.Map;

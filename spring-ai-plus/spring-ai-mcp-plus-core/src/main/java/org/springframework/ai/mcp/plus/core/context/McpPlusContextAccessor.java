@@ -17,6 +17,9 @@
 package org.springframework.ai.mcp.plus.core.context;
 
 // import org.springframework.ai.chat.model.ToolContext; // Commented out for standalone demo
+import org.springframework.ai.mcp.plus.core.holder.McpPlusContextHolder;
+import org.springframework.ai.mcp.plus.core.holder.impl.AdaptiveContextHolder;
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
 import org.springframework.lang.Nullable;
 import java.util.Optional;
 

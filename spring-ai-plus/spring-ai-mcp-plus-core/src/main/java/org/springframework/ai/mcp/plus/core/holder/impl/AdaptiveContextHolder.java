@@ -14,8 +14,11 @@
  * limitations under the License.
  */
 
-package org.springframework.ai.mcp.plus.core.context;
+package org.springframework.ai.mcp.plus.core.holder.impl;
 
+import org.springframework.ai.mcp.plus.core.context.McpPlusContext;
+import org.springframework.ai.mcp.plus.core.environment.EnvironmentDetector;
+import org.springframework.ai.mcp.plus.core.holder.McpPlusContextHolder;
 import org.springframework.util.ClassUtils;
 
 /**

@@ -14,7 +14,10 @@
  * limitations under the License.
  */
 
-package org.springframework.ai.mcp.plus.core.context;
+package org.springframework.ai.mcp.plus.core.holder;
+
+import org.springframework.ai.mcp.plus.core.context.McpPlusContext;
+import org.springframework.lang.Nullable;
 
 /**
  * Strategy interface for holding and managing McpPlusContext instances.

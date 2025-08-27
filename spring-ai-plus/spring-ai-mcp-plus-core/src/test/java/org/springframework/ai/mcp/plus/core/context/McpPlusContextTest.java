@@ -16,6 +16,8 @@
 
 package org.springframework.ai.mcp.plus.core.context;
 
+import org.springframework.ai.mcp.plus.core.impl.DefaultMcpPlusContext;
+import org.springframework.ai.mcp.plus.core.session.McpPlusSession;
 import org.junit.jupiter.api.Test;
 // import org.springframework.ai.chat.model.ToolContext; // Commented out for standalone demo
 
