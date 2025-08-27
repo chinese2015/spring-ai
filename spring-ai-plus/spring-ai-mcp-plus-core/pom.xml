@@ -49,6 +49,20 @@
             <optional>true</optional>
         </dependency>
         
+        <!-- Jakarta Annotations for @PreDestroy -->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
+        <!-- AspectJ for AOP (optional) -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        
         <!-- Test dependencies -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>

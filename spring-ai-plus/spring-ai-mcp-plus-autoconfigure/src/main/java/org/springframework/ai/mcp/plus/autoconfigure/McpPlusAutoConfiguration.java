@@ -19,7 +19,9 @@ package org.springframework.ai.mcp.plus.autoconfigure;
 import org.springframework.ai.mcp.plus.core.context.McpPlusContext;
 import org.springframework.ai.mcp.plus.core.environment.EnvironmentDetector;
 import org.springframework.ai.mcp.plus.core.holder.McpPlusContextHolder;
-import org.springframework.ai.mcp.plus.core.holder.impl.AdaptiveContextHolder;
+import org.springframework.ai.mcp.plus.core.holder.impl.ThreadSafeContextHolder;
+import org.springframework.ai.mcp.plus.core.integration.McpSessionRegistrar;
+import org.springframework.ai.mcp.plus.core.integration.McpPlusToolAspect;
 import org.springframework.ai.mcp.plus.core.session.McpPlusSessionManager;
 import org.springframework.ai.mcp.plus.core.session.impl.DefaultSessionManager;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
@@ -61,7 +63,7 @@ public class McpPlusAutoConfiguration {
                     return new InheritableThreadLocalContextHolder();
                 case "adaptive":
                 default:
-                    return new AdaptiveContextHolder();
+                    return new ThreadSafeContextHolder();
             }
         }
         
@@ -75,11 +77,31 @@ public class McpPlusAutoConfiguration {
             );
         }
         
-        @Bean
-        @ConditionalOnMissingBean
-        public EnvironmentDetector environmentDetector() {
-            return new EnvironmentDetector();
-        }
+            @Bean
+    @ConditionalOnMissingBean
+    public EnvironmentDetector environmentDetector() {
+        return new EnvironmentDetector();
+    }
+    
+    /**
+     * Session registrar for non-intrusive MCP session management.
+     */
+    @Bean
+    @ConditionalOnMissingBean
+    public McpSessionRegistrar mcpSessionRegistrar(McpPlusSessionManager sessionManager) {
+        return new McpSessionRegistrar(sessionManager);
+    }
+    
+    /**
+     * AOP aspect for non-intrusive tool enhancement.
+     * This aspect will automatically detect MCP sessions and enhance tool execution.
+     */
+    @Bean
+    @ConditionalOnProperty(prefix = McpPlusProperties.CONFIG_PREFIX, name = "aop.enabled", havingValue = "true", matchIfMissing = true)
+    @ConditionalOnClass(name = "org.aspectj.lang.annotation.Aspect")
+    public McpPlusToolAspect mcpPlusToolAspect(McpSessionRegistrar sessionRegistrar) {
+        return new McpPlusToolAspect(sessionRegistrar);
+    }
     }
     
     /**

@@ -26,8 +26,10 @@ import java.time.Duration;
  * @author Spring AI MCP Plus Team
  * @since 1.0.0
  */
-@ConfigurationProperties(prefix = "spring.ai.mcp.plus")
+@ConfigurationProperties(prefix = McpPlusProperties.CONFIG_PREFIX)
 public class McpPlusProperties {
+    
+    public static final String CONFIG_PREFIX = "spring.ai.mcp.plus";
     
     /**
      * Whether MCP Plus is enabled.
@@ -38,6 +40,11 @@ public class McpPlusProperties {
      * Context configuration.
      */
     private Context context = new Context();
+    
+    /**
+     * AOP configuration for non-intrusive integration.
+     */
+    private AopConfig aop = new AopConfig();
     
     public boolean isEnabled() {
         return enabled;
@@ -53,6 +60,14 @@ public class McpPlusProperties {
     
     public void setContext(Context context) {
         this.context = context;
+    }
+    
+    public AopConfig getAop() {
+        return aop;
+    }
+    
+    public void setAop(AopConfig aop) {
+        this.aop = aop;
     }
     
     /**
@@ -187,6 +202,25 @@ public class McpPlusProperties {
         
         public void setInheritableThreadLocal(boolean inheritableThreadLocal) {
             this.inheritableThreadLocal = inheritableThreadLocal;
+        }
+    }
+    
+    /**
+     * AOP configuration properties.
+     */
+    public static class AopConfig {
+        
+        /**
+         * Whether to enable AOP-based tool enhancement.
+         */
+        private boolean enabled = true;
+        
+        public boolean isEnabled() {
+            return enabled;
+        }
+        
+        public void setEnabled(boolean enabled) {
+            this.enabled = enabled;
         }
     }
 }
